@@ -31,7 +31,12 @@ public class Store {
 						bag.getCounts()[1],
 						bag.getCounts()[k] - Integer.parseInt(s1),
 						bag.getCounts()[3] });
-				System.out.println(bag.getCounts()[k]);
+				if (bag.getCounts()[k]<0){
+					System.out.println("This brands off....");
+				}else{
+					System.out.println(bag.getCounts()[k]);
+					
+				}
 				yes = 1;
 				total_value=total_value+Integer.parseInt(s1)*bag.getValues()[k];
 			}
@@ -49,8 +54,12 @@ public class Store {
 						shoes.getCounts()[1],
 						shoes.getCounts()[k1] - Integer.parseInt(p1),
 						shoes.getCounts()[3] });
+			if (shoes.getCounts()[k1]<0){
+				System.out.println("This brands off....");
+			}else{
 				System.out.println(shoes.getCounts()[k1]);
-				yes1 = 1;
+				
+			}yes1 = 1;
 				total_value=total_value+Integer.parseInt(p1)*shoes.getValues()[k1];
 			}
 			k1 = k1 + 1;
