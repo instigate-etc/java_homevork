@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class Store {
 	int h = 0;
 	int h1 = 0;
-
-	int line;
 	public String input;
+	String s1;
+	String p1;
+	int k1;
+	int k;
 	Bag bag = new Bag();
 	Shoes shoes = new Shoes();
-
+	Product product = new Product();
 	Scanner input1 = new Scanner(System.in);
+	double total_value = 0;
+
 	public void shopper() {
-		int k = 0;
-		int k1 = 0;
+		k = 0;
+		k1 = 0;
+		int yes = 0;
+		int yes1 = 0;
 		System.out.print("Brand Bag ");
 		String s = input1.next();
 		System.out.print("Count Bag ");
@@ -26,12 +32,12 @@ public class Store {
 						bag.getCounts()[k] - Integer.parseInt(s1),
 						bag.getCounts()[3] });
 				System.out.println(bag.getCounts()[k]);
+				yes = 1;
+				total_value=total_value+Integer.parseInt(s1)*bag.getValues()[k];
 			}
 			k = k + 1;
 		}
-		if (k == 4) {
-			System.out.println("Please we havn't this Brand");
-		}
+		ifbe(yes);
 		System.out.print("Brand Shoes ");
 		String p = input1.next();
 		System.out.print("Count Shoes ");
@@ -44,11 +50,43 @@ public class Store {
 						shoes.getCounts()[k1] - Integer.parseInt(p1),
 						shoes.getCounts()[3] });
 				System.out.println(shoes.getCounts()[k1]);
+				yes1 = 1;
+				total_value=total_value+Integer.parseInt(p1)*shoes.getValues()[k1];
 			}
 			k1 = k1 + 1;
+
+		}
+		ifbe(yes1);
+		
+	}
+
+	private void ifbe(int yes) {
+		if (yes == 0) {
+			System.out.println("Please we havn't this Brand");
 		}
 
 	}
-	
+
+	public void store() {
+		int y = 0;
+		int y1 = 0;
+		System.out
+				.println("-------------------------Online_shop_product------------------------");
+		System.out
+				.println("-------------------------Online_shop_product_Shoes------------------------");
+		while (y < shoes.getCounts().length) {
+			System.out.println(shoes.getBrands()[y] + " "
+					+ shoes.getCounts()[y] + " " + shoes.getValues()[y]);
+			y++;
+		}
+		System.out
+				.println("-------------------------Online_shop_product_Bags------------------------");
+		while (y1 < bag.getCounts().length) {
+			System.out.println(bag.getBrands()[y1] + " " + bag.getCounts()[y1]
+					+ " " + bag.getValues()[y1]);
+			y1++;
+		}
+		 System.out.println(total_value);
+	}
 
 }
