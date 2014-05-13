@@ -12,15 +12,15 @@ public class Store {
 	double total_value = 0;
 	int yes = 0;
 	public void shopper() {
-		org(bag,"Bag");
-		org(shoes,"Shoes");
+		buy_and_sell(bag,"Bag");
+		buy_and_sell(shoes,"Shoes");
 	}
 	private void ifbe(int yes) {
 		if (yes == 0) {
 			System.out.println("Please we havn't this Brand");
 		}
 	}
-	public void org(Product p,String brend_name){
+	public void buy_and_sell(Product p,String brend_name){
 		k=0;
 		yes=0;
 		System.out.print("Brand "+brend_name+" ");
